@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>weather page for <%=shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="main.css" />
+  </head>
+  <body>
+    <h1>enter the city name:</h1>
+    <form action="/weather-result" method="GET">
+      <input id="weather-box" type="text" name="weather_keyword" value="enter value here">
+      <input type="submit" value="enter" >
+    </form>
+
+    <ul>
+      <% if(typeof availableweatherdata !== 'undefined'){%>
+      <% availableweatherdata.forEach(function(data) { %>
+        <li><%=data.stringdata %>: <%=data.actualdata%> </li>
+      <% }) %>
+      <% }%>
+    </ul>
+
+  </body>
+</html>

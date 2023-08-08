@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>TV Show page for <%=shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="main.css" />
+  </head>
+  <body>
+    <h1>enter the TV Show name:</h1>
+    <form action="/tvshow-result" method="GET">
+      
+      <input id="tvshow-box" type="text" name="tvshow_keyword" value="enter value here">
+      <input type="submit" value="enter" >
+    </form>
+
+    <ul>
+      <% if(typeof availabletvshowdata !== 'undefined'){%>
+      <% availabletvshowdata.forEach(function(data) { %>
+        <li>Name: <%=data.show.name %> || Language: <%=data.show.language %> || Genres: <%=data.show.genres %> || Rating: <%=data.show.rating.average %> || Summary: <%=data.show.summary %>|| </li>
+      <% }) %>
+      <% }%>
+    </ul>
+
+  </body>
+</html>

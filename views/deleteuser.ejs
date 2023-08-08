@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Welcome to <%=shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="main.css" />
+  </head>
+  <body>
+    <h1><%=shopName%> Shop</h1>
+    <h2>Here you can delete any user :</h2>
+    
+
+    <form action="/deleteuser1" method="POST" onsubmit="validateForm()">
+      <label for="delete_user_selector">Choose a user to delete:</label>
+      <select id="delete_user_selector" name="delete_user_selector">
+          <% availableusers.forEach(function(users){ %>
+              <option><%= "id number "+users.id+" -> "+users.username %></option>
+          <% }) %>
+          
+      </select>
+      <input type="submit">
+    </form>
+    <script>
+      function validateForm() {
+          alert("deleted sucessfully");
+      }
+    </script>
+
+    </body>
+</html>
