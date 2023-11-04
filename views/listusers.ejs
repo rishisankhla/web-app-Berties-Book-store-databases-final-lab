@@ -1,29 +1,42 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Welcome to <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1><%=shopName%> Shop</h1>
-    <h2>Here we can see all the user details:</h2>
-    <table>
-      <tr>
-        <th>user name</th>
-        <th>first name</th>
-        <th>last name</th>
-        <th>email id</th>
-      </tr>
-      <% availableusers.forEach(function(users) { %>
-        <tr>
-          <th><%= users.username %></th>
-          <th><%= users.first_name %></th>
-          <th><%= users.last_name %></th>
-          <th><%= users.email %></th>
-        </tr>
-      <% }) %>
-      
-    </table>
-    
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1><%= shopName %> Shop</h1>
+    </header>
+    <main>
+        <section class="list-users">
+            <h2>User Details</h2>
+            <p>Here we can see all the user details:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% availableusers.forEach(function(users) { %>
+                        <tr>
+                            <td><%= users.username %></td>
+                            <td><%= users.first_name %></td>
+                            <td><%= users.last_name %></td>
+                            <td><%= users.email %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
 </html>

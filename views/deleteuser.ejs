@@ -1,29 +1,37 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Welcome to <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1><%=shopName%> Shop</h1>
-    <h2>Here you can delete any user :</h2>
-    
-
-    <form action="/deleteuser1" method="POST" onsubmit="validateForm()">
-      <label for="delete_user_selector">Choose a user to delete:</label>
-      <select id="delete_user_selector" name="delete_user_selector">
-          <% availableusers.forEach(function(users){ %>
-              <option><%= "id number "+users.id+" -> "+users.username %></option>
-          <% }) %>
-          
-      </select>
-      <input type="submit">
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1><%= shopName %> Shop</h1>
+    </header>
+    <main>
+        <section class="delete-user-form">
+            <h2>Delete User</h2>
+            <p>Here you can delete any user:</p>
+            <form action="/deleteuser1" method="POST" onsubmit="return validateForm()">
+                <label for="delete_user_selector">Choose a user to delete:</label>
+                <select id="delete_user_selector" name="delete_user_selector">
+                    <% availableusers.forEach(function(users) { %>
+                        <option value="<%= users.id %>"><%= "ID: " + users.id + " -> " + users.username %></option>
+                    <% }) %>
+                </select>
+                <input type="submit" value="Delete">
+            </form>
+        </section>
+    </main>
     <script>
-      function validateForm() {
-          alert("deleted sucessfully");
-      }
+        function validateForm() {
+            alert("User deleted successfully");
+            return true;
+        }
     </script>
-
-    </body>
+</body>
 </html>

@@ -1,23 +1,40 @@
-<!doctype html>
-<html>
-  <head>
-    <title>weather page for <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1>enter the city name:</h1>
-    <form action="/weather-result" method="GET">
-      <input id="weather-box" type="text" name="weather_keyword" value="enter value here">
-      <input type="submit" value="enter" >
-    </form>
-
-    <ul>
-      <% if(typeof availableweatherdata !== 'undefined'){%>
-      <% availableweatherdata.forEach(function(data) { %>
-        <li><%=data.stringdata %>: <%=data.actualdata%> </li>
-      <% }) %>
-      <% }%>
-    </ul>
-
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather page for <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1>Check the Weather</h1>
+    </header>
+    <main>
+        <section class="weather-search">
+            <h2>Enter the City Name</h2>
+            <form action="/weather-result" method="GET">
+                <div class="form-group">
+                    <label for="weather-box">City Name:</label>
+                    <input id="weather-box" type="text" name="weather_keyword" placeholder="Enter a city name" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+        </section>
+        <section class="weather-results">
+            <h2>Weather Data</h2>
+            <ul>
+                <% if (typeof availableweatherdata !== 'undefined') { %>
+                    <% availableweatherdata.forEach(function(data) { %>
+                        <li><strong><%= data.stringdata %>:</strong> <%= data.actualdata %></li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+</body>
 </html>

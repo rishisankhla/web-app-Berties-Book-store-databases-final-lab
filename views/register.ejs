@@ -1,18 +1,46 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Register for <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1>Register for <%=shopName%></h1>
-    <form method="POST" action="/registered">
-      <p>Username:<input id="user_name" type="text" name="user_name" value="user name" /></p>
-      <p>password: <input id="password" type="text" name="password" value="password" /></p>
-        <p>First name: <input id="first" type="text" name="first" value="first name" /></p>
-        <p>Last name: <input id="last" type="text" name="last" value="last name" /></p>
-        <p>Email: <input id="email" type="email" name="email" value="email" /></p>
-        <input type="submit" value="Register" />
-      </form>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1>Register for <%= shopName %></h1>
+    </header>
+    <main>
+        <section class="register-form">
+            <h2>Register</h2>
+            <form method="POST" action="/registered">
+                <div class="form-group">
+                    <label for="user_name">Username:</label>
+                    <input id="user_name" type="text" name="user_name" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password" placeholder="Choose a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="first">First Name:</label>
+                    <input id="first" type="text" name="first" placeholder="Enter your first name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last">Last Name:</label>
+                    <input id="last" type="text" name="last" placeholder="Enter your last name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
 </html>

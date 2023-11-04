@@ -1,16 +1,31 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Welcome to <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1><%=shopName%> Shop</h1>
-    <h2>Here are the books that we sell:</h2>
-    <ul>
-      <% availableBooks.forEach(function(book) { %>
-        <li><%= book.name %>, £<%=book.price%> </li>
-      <% }) %>
-    </ul>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header> 
+        <h1><%= shopName %> Shop</h1>
+    </header>
+    <main>
+        <section class="list-books">
+            <h2>Our Books</h2>
+            <p>Here are the books that we sell:</p>
+            <ul>
+                <% availableBooks.forEach(function(book) { %>
+                    <li>
+                        <span class="book-name"><%= book.name %></span>
+                        <span class="book-price">£<%= book.price %></span>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </main>
+</body>
 </html>
+

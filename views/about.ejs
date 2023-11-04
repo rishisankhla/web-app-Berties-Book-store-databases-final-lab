@@ -1,11 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <title>About <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1>About <%=shopName%></h1>
-    <p>We sell all sorts of books and nothing else!</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1>About <%= shopName %></h1>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to Our Bookstore</h2>
+            <p>We sell a wide variety of books for every reading enthusiast. Explore our collection and discover your next great read.</p>
+        </section>
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>At <%= shopName %>, our mission is to connect people with the joy of reading. We believe in the power of books to inspire, educate, and entertain.</p>
+        </section>
+    </main>
+</body>
 </html>

@@ -1,15 +1,30 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Search <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1>Search <%=shopName%></h1>
-    <form action="/search-result" method="GET">
-      <p>What book do you want?</p>
-      <input id="search-box" type="text" name="keyword" value="Default">
-      <input type="submit" value="Search" >
-    </form>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1>Search <%= shopName %></h1>
+    </header>
+    <main>
+        <section class="search-form">
+            <h2>Search for Books</h2>
+            <form action="/search-result" method="GET">
+                <div class="form-group">
+                    <label for="search-box">What book do you want?</label>
+                    <input id="search-box" type="text" name="keyword" placeholder="Enter a keyword" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
 </html>

@@ -1,15 +1,34 @@
-<!doctype html>
-<html>
-  <head>
-    <title>login page for <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1>login for <%=shopName%></h1>
-    <form method="POST" action="/loggedin">
-      <p>Username:<input id="user_name" type="text" name="user_name" value="user name" /></p>
-      <p>password: <input id="password" type="text" name="password" value="password" /></p>
-        <input type="submit" value="login" />
-      </form>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1>Login for <%= shopName %></h1>
+    </header>
+    <main>
+        <section class="login-form">
+            <h2>Login</h2>
+            <form method="POST" action="/loggedin">
+                <div class="form-group">
+                    <label for="user_name">Username:</label>
+                    <input id="user_name" type="text" name="user_name" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
 </html>

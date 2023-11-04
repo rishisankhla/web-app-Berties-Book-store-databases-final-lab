@@ -1,24 +1,46 @@
-<!doctype html>
-<html>
-  <head>
-    <title>TV Show page for <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1>enter the TV Show name:</h1>
-    <form action="/tvshow-result" method="GET">
-      
-      <input id="tvshow-box" type="text" name="tvshow_keyword" value="enter value here">
-      <input type="submit" value="enter" >
-    </form>
-
-    <ul>
-      <% if(typeof availabletvshowdata !== 'undefined'){%>
-      <% availabletvshowdata.forEach(function(data) { %>
-        <li>Name: <%=data.show.name %> || Language: <%=data.show.language %> || Genres: <%=data.show.genres %> || Rating: <%=data.show.rating.average %> || Summary: <%=data.show.summary %>|| </li>
-      <% }) %>
-      <% }%>
-    </ul>
-
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show page for <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <!-- Include the navigation bar -->
+  <%- include('nav-bar.ejs') %>
+    <header>
+        <h1>Search for a TV Show</h1>
+    </header>
+    <main>
+        <section class="tv-show-search">
+            <h2>Enter the TV Show Name</h2>
+            <form action="/tvshow-result" method="GET">
+                <div class="form-group">
+                    <label for="tvshow-box">TV Show Name:</label>
+                    <input id="tvshow-box" type="text" name="tvshow_keyword" placeholder="Enter a TV Show name" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+        </section>
+        <section class="tv-show-results">
+            <h2>Search Results</h2>
+            <ul>
+                <% if (typeof availabletvshowdata !== 'undefined') { %>
+                    <% availabletvshowdata.forEach(function(data) { %>
+                        <li>
+                            <strong>Name:</strong> <%= data.show.name %><br>
+                            <strong>Language:</strong> <%= data.show.language %><br>
+                            <strong>Genres:</strong> <%= data.show.genres %><br>
+                            <strong>Rating:</strong> <%= data.show.rating.average %><br>
+                            <strong>Summary:</strong> <%= data.show.summary %>
+                        </li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+</body>
 </html>

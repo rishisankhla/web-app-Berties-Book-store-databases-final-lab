@@ -1,22 +1,48 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Welcome to <%=shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="main.css" />
-  </head>
-  <body>
-    <h1>Welcome to <%=shopName%></h1>
-    <p><a href="about">About <%=shopName%></a></p>
-    <p><a href="login">login</a></p>
-    <p><a href="search">Search for books</a></p>
-    <p><a href="addbook">Add a new book</a></p>
-    <p><a href="list">List books</a></p>
-    <p><a href="listusers">List Users</a></p>
-    <p><a href="deleteuser">Delete user</a></p>
-    <p><a href="bargainbooks">Bargain books</a></p>
-    <p><a href="register">Register with us</a></p>
-    <p><a href="weather">Weather</a></p>
-    <p><a href="tvshow">TV Show</a></p>
-    <p><a href="logout">log out</a></p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Include the Font Awesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha384-Ya538N0Lr1/k2DLa4ZSklRJoaw6qqofKFp3e2FQuEc1gsujaaJ45QDOhl41K12RtE" crossorigin="anonymous">
+</head>
+<body> 
+    <!-- Include the navigation bar -->
+    <%- include('nav-bar.ejs') %>
+    <header>
+        <h1>Welcome to <%= shopName %></h1>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Discover Your Next Great Read <i class="fas fa-book"></i></h2>
+            <p>Welcome to <%= shopName %>! We're your gateway to a world of books, knowledge, and adventure.</p>
+        </section>
+        <section class="featured-books">
+            <h2>Featured Books</h2>
+            <div class="book">
+                <h3>Book Title 1</h3>
+                <p>Author: Author Name</p>
+                <i class="fas fa-mystery"></i> <!-- Mystery Book Icon -->
+            </div>
+            <div class="book">
+                <h3>Book Title 2</h3>
+                <p>Author: Author Name</p>
+                <i class="fas fa-history"></i> <!-- History Book Icon -->
+            </div>
+            <div class="book">
+                <h3>Book Title 3</h3>
+                <p>Author: Author Name</p>
+                <i class="fas fa-science"></i> <!-- Science Book Icon -->
+            </div>
+        </section>
+        <section class="quote">
+            <h2>Our Passion for Books</h2>
+            <blockquote>
+                "A room without books is like a body without a soul." - Marcus Tullius Cicero
+            </blockquote>
+        </section>
+    </main>
+</body>
 </html>
